@@ -222,7 +222,8 @@ Architecture: any
 Multi-Arch: foreign
 Depends:
  ${shlibs:Depends},
- ${misc:Depends}
+ ${misc:Depends},
+ ffmpeg5
 Suggests:
  ffmpeg-doc
 Description: Tools for transcoding, streaming and playing of multimedia files
