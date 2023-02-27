@@ -1,3 +1,9 @@
+ffmpeg (11:6.0.0-99pika5) kinetic; urgency=medium
+
+  * Pull ffmpeg5
+
+ -- Ward Nakchbandi <hotrod.master@hotmail.com>  Sat, 01 Oct 2022 14:50:00 +0200
+
 ffmpeg (11:6.0.0-99pika4) kinetic; urgency=medium
 
   * Update to release 6.0.0
