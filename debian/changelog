@@ -1,4 +1,4 @@
-ffmpeg (11:6.0.0-99pika1) kinetic; urgency=medium
+ffmpeg (11:6.0.0-99pika3) kinetic; urgency=medium
 
   * Update to release 6.0.0
 
