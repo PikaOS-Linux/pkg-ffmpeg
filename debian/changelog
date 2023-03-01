@@ -1,4 +1,4 @@
-ffmpeg (11:6.0.0-99pika6) kinetic; urgency=medium
+ffmpeg (11:6.0.0-99pika7) kinetic; urgency=medium
 
   * Pull ffmpeg5
 
