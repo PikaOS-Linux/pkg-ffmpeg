@@ -12,6 +12,14 @@ PKG_CONFIG_PATH := $(PKG_CONFIG_PATH):/opt/ffmpeg5/usr/lib/x86_64-linux-gnu/pkgc
 
 # Most possible features, compatible with effective licensing of GPLv2+
 CONFIG := --prefix=/usr \
+	--bindir=/usr/bin \
+	--datadir=/usr/share/ffmpeg   \
+	--docdir=/usr/share/doc/ffmpeg \
+	--libdir=/usr/lib/$(DEB_HOST_MULTIARCH) \
+	--incdir=/usr/include/$(DEB_HOST_MULTIARCH) \
+	--mandir=/usr/share/man   \
+	--pkgconfigdir=/usr/lib/$(DEB_HOST_MULTIARCH)/pkgconfig \
+	--enable-rpath \
 	--extra-version="$(DEB_REVISION)" \
 	--toolchain=hardened \
 	--arch=$(DEB_HOST_ARCH_CPU) \
@@ -143,21 +151,18 @@ endif
 
 # Use the default debhelper scripts, where possible.
 %:
-	dh $@ --with pkgkde_symbolshelper
+	dh $@
 
 # Add configuration options:
 override_dh_auto_configure:
-	mkdir -p  debian/standard
+	mkdir -p debian/standard/tools
+	mkdir -p debian/standard/doc
 	./configure \
 	$(CONFIG)
 
-# Remove the subdirectories generated for the flavors.
-override_dh_auto_clean:
-		echo "disabled"
-
-# Create doxygen documentation:
-override_dh_auto_build-indep:
-	dh_auto_build -i -- apidoc documentation
+override_dh_auto_build:
+	dh_auto_build
+	dh_auto_build -i --sourcedirectory=debian/standard -- apidoc documentation
 	# Create the minified CSS files.
 	#  Due to https://github.com/nodejs/node/issues/14752 where nodejs will
 	#  leave set O_NONBLOCK on stderr, we pipe stderr through cat which will
@@ -165,8 +170,12 @@ override_dh_auto_build-indep:
 	#  See: #895154
 	(lessc debian/missing-sources/ffmpeg-web/src/less/style.less | cleancss > debian/standard/doc/style.min.css) 2>&1 | cat >&2
 
+# Remove the subdirectories generated for the flavors.
+override_dh_auto_clean:
+		echo "disabled"
+
 override_dh_install:
-	$(CC) tools/qt-faststart.c -o debian/standard/qt-faststart
+	$(CC) tools/qt-faststart.c -o debian/standard/tools/qt-faststart
 	dh_install
 
 # avoid error: Unknown DWARF DW_OP_0
