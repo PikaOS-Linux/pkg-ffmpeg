@@ -166,7 +166,7 @@ override_dh_auto_build-indep:
 	(lessc debian/missing-sources/ffmpeg-web/src/less/style.less | cleancss > debian/standard/doc/style.min.css) 2>&1 | cat >&2
 
 override_dh_install:
-	$(MAKE) -C debian/standard tools/qt-faststart
+	$(CC) tools/qt-faststart.c -o debian/standard/qt-faststart
 	dh_install
 
 # avoid error: Unknown DWARF DW_OP_0
