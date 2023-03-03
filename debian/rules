@@ -156,7 +156,7 @@ endif
 # Add configuration options:
 override_dh_auto_configure:
 	mkdir -p debian/standard/tools
-	mkdir -p debian/standard/doc
+	cp -rvf doc debian/standard/doc
 	./configure \
 	$(CONFIG)
 
