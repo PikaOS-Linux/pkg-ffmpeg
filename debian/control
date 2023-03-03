@@ -267,6 +267,7 @@ Suggests:
  libcuda1 [amd64 arm64 i386],
  libnvcuvid1 [amd64 arm64 i386],
  libnvidia-encode1 [amd64 arm64 i386],
+Provides: libavcodec-extra (= ${binary:Version})
 Description: FFmpeg library with de/encoders for audio/video codecs - runtime files
  FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
  mux, demux, stream, filter and play pretty much anything that humans and
@@ -341,6 +342,7 @@ Depends:
  libswscale-dev (= ${binary:Version}),
  libswresample-dev (= ${binary:Version}),
  ${misc:Depends}
+Provides: libavdevice-extra (= ${binary:Version})
 Description: FFmpeg library for handling input and output devices - development files
  FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
  mux, demux, stream, filter and play pretty much anything that humans and
@@ -360,6 +362,7 @@ Multi-Arch: same
 Depends:
  ${shlibs:Depends},
  ${misc:Depends}
+Provides: libavfilter-extra (= ${binary:Version})
 Description: FFmpeg library containing media filters - runtime files
  FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
  mux, demux, stream, filter and play pretty much anything that humans and
@@ -402,6 +405,7 @@ Multi-Arch: same
 Depends:
  ${shlibs:Depends},
  ${misc:Depends}
+Provides: libavformat-extra (= ${binary:Version})
 Description: FFmpeg library with (de)muxers for multimedia containers - runtime files
  FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
  mux, demux, stream, filter and play pretty much anything that humans and
@@ -445,6 +449,7 @@ Multi-Arch: same
 Depends:
  ${shlibs:Depends},
  ${misc:Depends}
+Provides: libavutil-extra (= ${binary:Version})
 Description: FFmpeg library with functions for simplifying programming - runtime files
  FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
  mux, demux, stream, filter and play pretty much anything that humans and
@@ -489,6 +494,7 @@ Multi-Arch: same
 Depends:
  ${shlibs:Depends},
  ${misc:Depends}
+Provides: libpostproc-extra (= ${binary:Version})
 Description: FFmpeg library for post processing - runtime files
  FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
  mux, demux, stream, filter and play pretty much anything that humans and
@@ -524,6 +530,7 @@ Multi-Arch: same
 Depends:
  ${shlibs:Depends},
  ${misc:Depends}
+Provides: libswresample-extra (= ${binary:Version})
 Description: FFmpeg library for audio resampling, rematrixing etc. - runtime files
  FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
  mux, demux, stream, filter and play pretty much anything that humans and
@@ -593,6 +600,7 @@ Multi-Arch: same
 Depends:
  ${shlibs:Depends},
  ${misc:Depends}
+Provides: libswscale-extra (= ${binary:Version})
 Description: FFmpeg library for image scaling and various conversions - runtime files
  FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
  mux, demux, stream, filter and play pretty much anything that humans and
