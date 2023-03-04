@@ -267,7 +267,6 @@ Suggests:
  libcuda1 [amd64 arm64 i386],
  libnvcuvid1 [amd64 arm64 i386],
  libnvidia-encode1 [amd64 arm64 i386],
-Provides: libavcodec-extra (= ${binary:Version})
 Description: FFmpeg library with de/encoders for audio/video codecs - runtime files
  FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
  mux, demux, stream, filter and play pretty much anything that humans and
@@ -283,6 +282,61 @@ Description: FFmpeg library with de/encoders for audio/video codecs - runtime fi
  codecs as well as for experimentation.
  .
  This package contains the runtime files.
+
+Package: libavcodec-extra60
+Architecture: any
+Section: libs
+Multi-Arch: same
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ libavcodec60 (= ${binary:Version})
+Suggests:
+ libcuda1 [amd64 arm64 i386],
+ libnvcuvid1 [amd64 arm64 i386],
+ libnvidia-encode1 [amd64 arm64 i386],
+Description: FFmpeg library with additional de/encoders for audio/video codecs
+ FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
+ mux, demux, stream, filter and play pretty much anything that humans and
+ machines have created. It supports the most obscure ancient formats up to the
+ cutting edge.
+ .
+ This library provides a generic encoding/decoding framework and
+ contains multiple decoders and encoders for audio, video and subtitle streams,
+ and several bitstream filters.
+ .
+ The shared architecture provides various services ranging from bit stream I/O
+ to DSP optimizations, and makes it suitable for implementing robust and fast
+ codecs as well as for experimentation.
+ .
+ This package replaces the libavcodec58 package and contains the
+ following additional codecs:
+ .
+  * ARIB STD-B24 Captions (Subtitle Decoder)
+  * OpenCORE Adaptive Multi-Rate (AMR) Narrow-Band (Encoder/Decoder)
+  * OpenCORE Adaptive Multi-Rate (AMR) Wide-Band (Decoder)
+  * Android VisualOn Adaptive Multi-Rate (AMR) Wide-Band (Encoder)
+ .
+ Because this package links against libraries that are licensed under
+ Apache License 2.0, the resulting binaries are distributed under the
+ GPL version 3 or later.
+
+Package: libavcodec-extra
+Architecture: any
+Section: metapackages
+Multi-Arch: same
+Depends:
+ libavcodec-extra60 (= ${binary:Version}),
+ ${misc:Depends}
+Description: FFmpeg library with extra codecs (metapackage)
+ FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
+ mux, demux, stream, filter and play pretty much anything that humans and
+ machines have created. It supports the most obscure ancient formats up to the
+ cutting edge.
+ .
+ This metapackage depends on the latest version of the libavcodec variant
+ that offers additional codec support. Application packages can depend
+ on it if they require or suggest this variant in a robust manner.
 
 Package: libavcodec-dev
 Architecture: any
@@ -342,7 +396,6 @@ Depends:
  libswscale-dev (= ${binary:Version}),
  libswresample-dev (= ${binary:Version}),
  ${misc:Depends}
-Provides: libavdevice-extra (= ${binary:Version})
 Description: FFmpeg library for handling input and output devices - development files
  FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
  mux, demux, stream, filter and play pretty much anything that humans and
@@ -362,7 +415,6 @@ Multi-Arch: same
 Depends:
  ${shlibs:Depends},
  ${misc:Depends}
-Provides: libavfilter-extra (= ${binary:Version})
 Description: FFmpeg library containing media filters - runtime files
  FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
  mux, demux, stream, filter and play pretty much anything that humans and
@@ -373,6 +425,49 @@ Description: FFmpeg library containing media filters - runtime files
  several filters, sources and sinks.
  .
  This package contains the runtime files.
+
+Package: libavfilter-extra9
+Architecture: any
+Section: libs
+Multi-Arch: same
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ libavfilter9 (= ${binary:Version})
+Description: FFmpeg library with extra media filters - runtime files
+ FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
+ mux, demux, stream, filter and play pretty much anything that humans and
+ machines have created. It supports the most obscure ancient formats up to the
+ cutting edge.
+ .
+ This library provides a generic audio/video filtering framework containing
+ several filters, sources and sinks.
+ .
+ This package replaces the libavfilter6 package and contains the
+ following additional filters:
+ .
+  * Optical Character Recognition (uses Tesseract)
+ .
+ Because this package links against libraries that are licensed under
+ Apache License 2.0, the resulting binaries are distributed under the
+ GPL version 3 or later.
+
+Package: libavfilter-extra
+Architecture: any
+Section: metapackages
+Multi-Arch: same
+Depends:
+ libavfilter-extra9 (= ${binary:Version}),
+ ${misc:Depends}
+Description: FFmpeg library with extra filters (metapackage)
+ FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
+ mux, demux, stream, filter and play pretty much anything that humans and
+ machines have created. It supports the most obscure ancient formats up to the
+ cutting edge.
+ .
+ This metapackage depends on the latest version of the libavfilter variant
+ that offers additional filter support. Application packages can depend
+ on it if they require or suggest this variant in a robust manner.
 
 Package: libavfilter-dev
 Architecture: any
@@ -405,7 +500,6 @@ Multi-Arch: same
 Depends:
  ${shlibs:Depends},
  ${misc:Depends}
-Provides: libavformat-extra (= ${binary:Version})
 Description: FFmpeg library with (de)muxers for multimedia containers - runtime files
  FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
  mux, demux, stream, filter and play pretty much anything that humans and
@@ -418,6 +512,51 @@ Description: FFmpeg library with (de)muxers for multimedia containers - runtime 
  supports several input and output protocols to access a media resource.
  .
  This package contains the runtime files.
+
+Package: libavformat-extra60
+Architecture: any
+Section: libs
+Multi-Arch: same
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ libavformat60 (= ${binary:Version})
+Description: FFmpeg library with additional (de)muxers for multimedia containers
+ FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
+ mux, demux, stream, filter and play pretty much anything that humans and
+ machines have created. It supports the most obscure ancient formats up to the
+ cutting edge.
+ .
+ This library provides a generic framework for multiplexing and demultiplexing
+ (muxing and demuxing) audio, video and subtitle streams. It encompasses
+ multiple muxers and demuxers for multimedia container formats. It also
+ supports several input and output protocols to access a media resource.
+ .
+ This package replaces the libavformat58 package and contains the
+ following additional (de)muxers:
+ .
+  * SMB protocol (using libsmbclient)
+ .
+ Because this package links against libraries that are licensed under
+ Apache License 2.0 or GPL version 3, the resulting binaries are distributed
+ under the GPL version 3 or later.
+
+Package: libavformat-extra
+Architecture: any
+Section: metapackages
+Multi-Arch: same
+Depends:
+ libavformat-extra60 (= ${binary:Version}),
+ ${misc:Depends}
+Description: FFmpeg library with extra (de)muxers (metapackage)
+ FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
+ mux, demux, stream, filter and play pretty much anything that humans and
+ machines have created. It supports the most obscure ancient formats up to the
+ cutting edge.
+ .
+ This metapackage depends on the latest version of the libavformat variant
+ that offers additional (de)muxers support. Application packages can depend
+ on it if they require or suggest this variant in a robust manner.
 
 Package: libavformat-dev
 Architecture: any
@@ -449,7 +588,6 @@ Multi-Arch: same
 Depends:
  ${shlibs:Depends},
  ${misc:Depends}
-Provides: libavutil-extra (= ${binary:Version})
 Description: FFmpeg library with functions for simplifying programming - runtime files
  FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
  mux, demux, stream, filter and play pretty much anything that humans and
@@ -494,7 +632,6 @@ Multi-Arch: same
 Depends:
  ${shlibs:Depends},
  ${misc:Depends}
-Provides: libpostproc-extra (= ${binary:Version})
 Description: FFmpeg library for post processing - runtime files
  FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
  mux, demux, stream, filter and play pretty much anything that humans and
@@ -530,7 +667,6 @@ Multi-Arch: same
 Depends:
  ${shlibs:Depends},
  ${misc:Depends}
-Provides: libswresample-extra (= ${binary:Version})
 Description: FFmpeg library for audio resampling, rematrixing etc. - runtime files
  FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
  mux, demux, stream, filter and play pretty much anything that humans and
@@ -600,7 +736,6 @@ Multi-Arch: same
 Depends:
  ${shlibs:Depends},
  ${misc:Depends}
-Provides: libswscale-extra (= ${binary:Version})
 Description: FFmpeg library for image scaling and various conversions - runtime files
  FFmpeg is the leading multimedia framework, able to decode, encode, transcode,
  mux, demux, stream, filter and play pretty much anything that humans and
