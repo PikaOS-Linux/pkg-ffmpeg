@@ -120,9 +120,12 @@ endif
 ifeq (amd64,$(DEB_HOST_ARCH))
 CONFIG += --enable-libmfx \
 	--enable-nvenc \
+	--enable-nvdec \
 	--enable-amf \
 	--enable-nonfree \
-	--enable-libfdk-aac
+	--enable-libfdk-aac \
+	--enable-cuda-nvcc \
+	--enable-libnpp
 endif
 
 # Respect CC/CXX from the environment, if they differ from the default.

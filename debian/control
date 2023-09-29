@@ -662,7 +662,7 @@ Description: FFmpeg library for post processing - development files
  .
  This package contains the development files.
 
-Package: libswresample4ff6
+Package: libswresample4
 Architecture: any
 Section: libs
 Multi-Arch: same
@@ -702,7 +702,7 @@ Section: libdevel
 Multi-Arch: same
 Depends:
  libavutil-dev (= ${binary:Version}),
- libswresample4ff6 (= ${binary:Version}),
+ libswresample4 (= ${binary:Version}),
  ${misc:Depends}
 Description: FFmpeg library for audio resampling, rematrixing etc. - development files
  FFmpeg is the leading multimedia framework, able to decode, encode, transcode,

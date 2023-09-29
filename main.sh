@@ -9,7 +9,7 @@ apt-get build-dep ./ -y
 
 # Build package
 LOGNAME=root dh_make --createorig -y -l -p ffmpeg_6.0.0
-dpkg-buildpackage
+dpkg-buildpackage --no-sign
 
 # Move the debs to output
 cd ../
