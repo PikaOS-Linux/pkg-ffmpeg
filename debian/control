@@ -211,6 +211,7 @@ Build-Depends:
  libmodplug-dev,
 # --enable-vulkan
  libvulkan-dev,
+ vulkan-sdk,
 # --enable-librtmp
  librtmp-dev,
 # Unknown
