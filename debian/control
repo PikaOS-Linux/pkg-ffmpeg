@@ -28,6 +28,8 @@ Build-Depends:
  debhelper-compat (= 13),
 # --enable-libglslang,
  glslang-dev,
+ spirv-headers,
+ spirv-tools,
 # --enable-libflite
  flite1-dev,
 # --enable-frei0r
