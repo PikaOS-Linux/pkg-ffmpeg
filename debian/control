@@ -63,7 +63,7 @@ Build-Depends:
 # autodected: ffnvcodec
  libffmpeg-nvenc-dev [amd64 arm64 i386],
  nvidia-cuda-toolkit [amd64 arm64],
- libnppc11 [amd64 arm64],
+ libnppc12 [amd64 arm64],
 # --enable-libfontconfig
  libfontconfig-dev,
 # --enable-libfreetype

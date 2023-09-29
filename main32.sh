@@ -4,8 +4,6 @@ cp -rvf ./debian ./FFmpeg
 mv ./FFmpeg ./ffmpeg
 cd ./ffmpeg
 
-for i in ../patches/* ; do patch -Np1 -i $i; done
-
 # Get build deps
 apt-get build-dep ./ -y
 
