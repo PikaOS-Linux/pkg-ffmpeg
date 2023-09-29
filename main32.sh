@@ -4,11 +4,12 @@ cp -rvf ./debian ./FFmpeg
 mv ./FFmpeg ./ffmpeg
 cd ./ffmpeg
 
+for i in ../patches/* ; do patch -Np1 -i $i; done
+
 # Get build deps
 apt-get build-dep ./ -y
 
 # Build package
-LOGNAME=root dh_make --createorig -y -l -p ffmpeg_6.0.0
 dpkg-buildpackage --no-sign
 
 # Move the debs to output
